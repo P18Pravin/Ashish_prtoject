@@ -39,13 +39,8 @@ jobs:
       # Tag the Docker image with ECR repository URL
       - name: Tag Docker image
         run: |
-         IMAGE_TAG=latest
-         REPOSITORY_URI="692859927823.dkr.ecr.us-east-1.amazonaws.com/terraform_repo"
-         docker push $REPOSITORY_URI:$IMAGE_TAG
+         docker tag my-app:latest 692859927823.dkr.ecr.us-east-1.amazonaws.com/terraform_repo:latest
+         docker push 692859927823.dkr.ecr.us-east-1.amazonaws.com/terraform_repo:latest
 
       # Push the Docker image to AWS ECR
-      - name: Push Docker image to ECR
-        run: |
-          IMAGE_TAG=latest
-          REPOSITORY_URI="${{ secrets.AWS_ECR_REPOSITORY_URI }}"
-          docker push $REPOSITORY_URI:$IMAGE_TAG
+     
