@@ -35,7 +35,7 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t my-app .
-
+          docker images
       # Tag the Docker image with ECR repository URL
       - name: Tag Docker image
         run: |
