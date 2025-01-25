@@ -38,7 +38,7 @@ jobs:
       # Tag the Docker image with ECR repository URL
       - name: Tag Docker image
         run: |
-          IMAGE_TAG=abc
+          IMAGE_TAG=terraform_repo
           REPOSITORY_URI="${{ secrets.AWS_ECR_REPOSITORY_URI }}"
           docker tag my-app:latest $REPOSITORY_URI:$IMAGE_TAG
 
