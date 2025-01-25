@@ -25,6 +25,7 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
+          
 
       # Log in to Amazon ECR
       - name: Log in to Amazon ECR
@@ -38,8 +39,8 @@ jobs:
       # Tag the Docker image with ECR repository URL
       - name: Tag Docker image
         run: |
-          IMAGE_TAG=terraform_repo
-          REPOSITORY_URI="${{ secrets.AWS_ECR_REPOSITORY_URI }}"
+          IMAGE_TAG=latest
+          REPOSITORY_URI=692859927823.dkr.ecr.us-east-1.amazonaws.com/terraform_repo
           docker tag my-app:latest $REPOSITORY_URI:$IMAGE_TAG
 
       # Push the Docker image to AWS ECR
